@@ -32,11 +32,11 @@ public class ContractRepositoryImpl extends SQLiteOpenHelper implements Contract
     // Database creation sql statement
     private static final String DATABASE_CREATE = " CREATE TABLE "
             + TABLE_NAME + "("
-            + COLUMN_ID + " INTEGER  PRIMARY KEY AUTOINCREMENT, "
-            + COLUMN_IDCHECKNUM + " TEXT UNIQUE NOT NULL , "
-            + COLUMN_DETAILSCHECKNUM + " TEXT NOT NULL , "
+            + COLUMN_ID + " LONG PRIMARY KEY AUTOINCREMENT, "
+            + COLUMN_IDCHECKNUM + " INTEGER NOT NULL , "
+            + COLUMN_DETAILSCHECKNUM + " INTEGER NOT NULL , "
             + COLUMN_CONTRACTTYPE + " TEXT NOT NULL , "
-            + COLUMN_CONTRACTNUM + " TEXT NOT NULL , ";
+            + COLUMN_CONTRACTNUM + " INTEGER NOT NULL );";
 
 
     public ContractRepositoryImpl(Context context) {
@@ -75,18 +75,19 @@ public class ContractRepositoryImpl extends SQLiteOpenHelper implements Contract
                     .contractNum(cursor.getInt(cursor.getColumnIndex(COLUMN_CONTRACTNUM)))
                     .build();
 
-            final Contract Contract = new Contract.Builder()
+            final Contract contract = new Contract.Builder()
                     .id(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)))
                     .IdCheckNum(cursor.getInt(cursor.getColumnIndex(COLUMN_IDCHECKNUM)))
                     .DetailsCheckNum(cursor.getInt(cursor.getColumnIndex(COLUMN_DETAILSCHECKNUM)))
                     .contractDetails(contractDetails)
                     .build();
 
-            return Contract;
+            return contract;
         } else {
             return null;
         }
     }
+
     @Override
     public Contract save(Contract entity) {
         open();
@@ -96,6 +97,7 @@ public class ContractRepositoryImpl extends SQLiteOpenHelper implements Contract
         values.put(COLUMN_DETAILSCHECKNUM, entity.getDetailsCheckNum());
         values.put(COLUMN_CONTRACTTYPE, entity.getContractDetails().getContractType());
         values.put(COLUMN_CONTRACTNUM, entity.getContractDetails().getContractNum());
+
         long id = db.insertOrThrow(TABLE_NAME, null, values);
         Contract insertedEntity = new Contract.Builder()
                 .copy(entity)
@@ -145,14 +147,14 @@ public class ContractRepositoryImpl extends SQLiteOpenHelper implements Contract
                         .contractNum(cursor.getInt(cursor.getColumnIndex(COLUMN_CONTRACTNUM)))
                         .build();
 
-                final Contract Contract = new Contract.Builder()
+                final Contract contract = new Contract.Builder()
                         .id(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)))
                         .IdCheckNum(cursor.getInt(cursor.getColumnIndex(COLUMN_IDCHECKNUM)))
                         .DetailsCheckNum(cursor.getInt(cursor.getColumnIndex(COLUMN_DETAILSCHECKNUM)))
                         .contractDetails(contractDetails)
                         .build();
 
-                Contracts.add(Contract);
+                Contracts.add(contract);
             } while (cursor.moveToNext());
         }
         return Contracts;
