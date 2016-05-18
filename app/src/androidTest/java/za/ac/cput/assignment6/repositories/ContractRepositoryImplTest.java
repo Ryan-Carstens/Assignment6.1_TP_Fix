@@ -15,6 +15,7 @@ import za.ac.cput.assignment6.repository.Impl.ContractRepositoryImpl;
  * Created by sanXion on 2016/05/15.
  */
 public class ContractRepositoryImplTest extends AndroidTestCase {
+
     private static final String TAG="Contract TEST";
     private Long id;
 

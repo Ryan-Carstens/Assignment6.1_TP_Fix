@@ -30,10 +30,10 @@ public class RegistrationEntryRepositoryImpl extends SQLiteOpenHelper implements
     // Database creation sql statement
     private static final String DATABASE_CREATE = " CREATE TABLE "
             + TABLE_NAME + "("
-            + COLUMN_ID + " INTEGER  PRIMARY KEY AUTOINCREMENT, "
+            + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COLUMN_SOUTHAFRICANID + " TEXT UNIQUE NOT NULL , "
             + COLUMN_GENDER + " TEXT NOT NULL , "
-            + COLUMN_PLACEMENTCHOICE + " TEXT NOT NULL , ";
+            + COLUMN_PLACEMENTCHOICE + " TEXT NOT NULL );";
 
 
     public RegistrationEntryRepositoryImpl(Context context) {

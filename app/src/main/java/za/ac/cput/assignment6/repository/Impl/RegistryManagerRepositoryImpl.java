@@ -39,7 +39,7 @@ public class RegistryManagerRepositoryImpl extends SQLiteOpenHelper implements R
             + COLUMN_FIRSTNAME + " TEXT NOT NULL , "
             + COLUMN_LASTNAME + " TEXT NOT NULL , "
             + COLUMN_EMAIL + " TEXT NOT NULL , "
-            + COLUMN_PASSWORD + " TEXT NOT NULL , ";
+            + COLUMN_PASSWORD + " TEXT NOT NULL );";
 
     public RegistryManagerRepositoryImpl(Context context) {
         super(context, DBConstants.DATABASE_NAME, null, DBConstants.DATABASE_VERSION);

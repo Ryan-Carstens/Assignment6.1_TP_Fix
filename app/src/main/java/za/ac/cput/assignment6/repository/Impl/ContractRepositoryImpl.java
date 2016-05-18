@@ -32,7 +32,7 @@ public class ContractRepositoryImpl extends SQLiteOpenHelper implements Contract
     // Database creation sql statement
     private static final String DATABASE_CREATE = " CREATE TABLE "
             + TABLE_NAME + "("
-            + COLUMN_ID + " LONG PRIMARY KEY AUTOINCREMENT, "
+            + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COLUMN_IDCHECKNUM + " INTEGER NOT NULL , "
             + COLUMN_DETAILSCHECKNUM + " INTEGER NOT NULL , "
             + COLUMN_CONTRACTTYPE + " TEXT NOT NULL , "

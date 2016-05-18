@@ -29,7 +29,7 @@ public class IdentificationCheckRepositoryImpl extends SQLiteOpenHelper implemen
     private static final String DATABASE_CREATE = " CREATE TABLE "
             + TABLE_NAME + "("
             + COLUMN_ID + " INTEGER  PRIMARY KEY AUTOINCREMENT, "
-            + COLUMN_RESPONSE + " TEXT NOT NULL , ";
+            + COLUMN_RESPONSE + " TEXT NOT NULL );";
 
     public IdentificationCheckRepositoryImpl(Context context) {
         super(context, DBConstants.DATABASE_NAME, null, DBConstants.DATABASE_VERSION);
@@ -148,5 +148,4 @@ public class IdentificationCheckRepositoryImpl extends SQLiteOpenHelper implemen
         onCreate(db);
 
     }
-
 }

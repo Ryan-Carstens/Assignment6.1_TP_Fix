@@ -5,5 +5,5 @@ package za.ac.cput.assignment6.conf.databases;
  */
 public class DBConstants {
     public static final String DATABASE_NAME="topSecret";
-    public static final int DATABASE_VERSION=1;
+    public static final int DATABASE_VERSION=7;
 }

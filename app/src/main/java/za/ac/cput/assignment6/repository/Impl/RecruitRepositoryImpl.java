@@ -39,7 +39,7 @@ public class RecruitRepositoryImpl extends SQLiteOpenHelper implements RecruitRe
             + COLUMN_FIRSTNAME + " TEXT NOT NULL , "
             + COLUMN_LASTNAME + " TEXT NOT NULL , "
             + COLUMN_HOMENUMBER + " TEXT NOT NULL , "
-            + COLUMN_EMAIL + " TEXT NOT NULL , ";
+            + COLUMN_EMAIL + " TEXT NOT NULL );";
 
 
     public RecruitRepositoryImpl(Context context) {
